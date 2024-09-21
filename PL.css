@@ -48,3 +48,40 @@ img {
         flex-grow: 1;
     }
 }
+
+.content {
+    max-width: 600px; /* Sets a max width */
+    margin: 0 auto;   /* Centers the content horizontally */
+    line-height: 1.6; /* Improves line spacing for readability */
+}
+
+/* Optional: Adding padding to the paragraphs for better readability */
+p {
+    padding-bottom: 20px;
+}
+
+ /* Styling the home button */
+ .home-button {
+    position: absolute;  /* Keeps it in a fixed position */
+    top: 20px;           /* 20px from the top */
+    left: 20px;         /* 20px from the right */
+    background-color: #e88feb; /* Green background */
+    color: white;        /* White text */
+    padding: 10px 20px;  /* Padding inside the button */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;  /* Rounded corners */
+    font-size: 16px;     /* Size of the text */
+}
+
+/* Add hover effect */
+.home-button:hover {
+    background-color: #6ce886; /* Darker green on hover */
+}
+
+/* Ensuring the button is responsive */
+@media (max-width: 768px) {
+    .home-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
