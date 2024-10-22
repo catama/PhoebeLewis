@@ -73,6 +73,11 @@ p {
     font-size: 16px;     /* Size of the text */
 }
 
+h1{
+    color: #000000;
+ 
+}
+
 /* Add hover effect */
 .home-button:hover {
     background-color: #6ce886; /* Darker green on hover */
@@ -85,3 +90,12 @@ p {
         padding: 8px 16px;
     }
 }
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
