@@ -1,120 +1,120 @@
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+/* Global Reset & Base Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #e964b3;
-    background-image:url(../images/PGBG.png);
-    background-size: cover;
-    overflow: hidden;
-    
 }
 
+html, body {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e964b3;
+    background-image: url(../images/PGBG.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* No scrolling */
+    padding: 2vh; /* Prevents content from touching screen edges */
+}
 
-
+/* Responsive Image */
 img {
-    max-width: 30%;
+    width: 100%;
+    max-width: 600px;
     height: auto;
 }
 
+/* Button Container */
 .button-container {
-    margin-top: 20px;
+    margin-top: 2vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
+    gap: 1vh;
+    width: 80%;
     max-width: 300px;
 }
 
 .button-container a {
     text-align: center;
-    padding: 10px;
+    padding: 1vh 2vw;
     text-decoration: none;
     color: white;
     background-color: #df71a8;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-size: clamp(12px, 2vw, 16px);
 }
 
 .button-container a:hover {
     background-color: #6ce886;
 }
 
-@media (min-width: 500px) {
+/* Button Layout on Larger Screens */
+@media (min-width: 600px) {
     .button-container {
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .button-container a {
         flex-grow: 1;
+        margin: 0 0.5vw;
     }
 }
 
+/* Content Section */
 .content {
-    max-width: 600px; /* Sets a max width */
-    margin: 0 auto;   /* Centers the content horizontally */
-    line-height: 1.6; /* Improves line spacing for readability */
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.6;
 }
 
-/* Optional: Adding padding to the paragraphs for better readability */
-p {
-    padding-bottom: 20px;
+/* Home Button Styles */
+.home-button {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    background-color: #ff99cc;
+    color: white;
+    padding: 1vh 2vw;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: clamp(12px, 2vw, 16px);
 }
 
- /* Styling the home button */
- .home-button {
-    position: absolute;  /* Keeps it in a fixed position */
-    top: 20px;           /* 20px from the top */
-    left: 20px;         /* 20px from the right */
-    background-color: #ff99cc;; /* Green background */
-    color: white;        /* White text */
-    padding: 10px 20px;  /* Padding inside the button */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px;  /* Rounded corners */
-    font-size: 16px;     /* Size of the text */
-}
-
-h1{
-    color: #df71a8;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    font-size: 180%;
-    padding: 10px;
-    
-}
-
-h2{
-    color: #df71a8;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    font-size: 160%;
-    padding: 10px;
-    
-}
-
-/* Add hover effect */
 .home-button:hover {
-    background-color: #6ce886; /* Darker green on hover */
+    background-color: #6ce886;
 }
 
-/* Ensuring the button is responsive */
-@media (max-width: 768px) {
-    .home-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+/* Headings Styles */
+h1, h2 {
+    color: #df71a8;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1vh 2vw;
+    text-align: center;
+    margin-bottom: 2vh;
 }
 
+h1 {
+    font-size: clamp(24px, 4vw, 48px); /* Scales for all devices */
+}
+
+h2 {
+    font-size: clamp(20px, 3.5vw, 40px); /* Scales for all devices */
+}
+
+/* Background Canvas */
 canvas {
     display: block;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
-  }
-
+}
