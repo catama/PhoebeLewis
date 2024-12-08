@@ -6,7 +6,8 @@
 }
 
 html, body {
-    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+
+    font-family: "Bagel Fat One", system-ui;
     height: 100vh; /* Full viewport height */
     width: 100vw;  /* Full viewport width */
     display: flex;
@@ -101,11 +102,11 @@ h1, h2 {
 }
 
 h1 {
-    font-size: clamp(24px, 4vw, 36px); /* Scales for all devices */
+    font-size: clamp(24px, 4vw, 40px); /* Scales for all devices */
 }
 
 h2 {
-    font-size: clamp(20px, 3.5vw, 32px); /* Scales for all devices */
+    font-size: clamp(20px, 3.5vw, 36px); /* Scales for all devices */
 }
 
 /* Background Canvas */
@@ -121,4 +122,12 @@ canvas {
 
 a{
     text-decoration: none;
+    color: #de2b5b;
 }
+
+.bagel-fat-one-regular {
+    font-family: "Bagel Fat One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
