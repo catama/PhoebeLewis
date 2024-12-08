@@ -10,13 +10,14 @@ body {
     background-color: #e964b3;
     background-image:url(../images/PGBG.png);
     background-size: cover;
+    overflow: hidden;
     
 }
 
 
 
 img {
-    max-width: 40%;
+    max-width: 30%;
     height: auto;
 }
 
@@ -82,7 +83,7 @@ h1{
     color: #df71a8;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    font-size: 32px;
+    font-size: 180%;
     padding: 10px;
     
 }
@@ -91,7 +92,7 @@ h2{
     color: #df71a8;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 160%;
     padding: 10px;
     
 }
