@@ -23,8 +23,9 @@ html, body {
 /* Responsive Image */
 img {
     width: 100%;
-    max-width: 600px;
+    max-width: 560px;
     height: auto;
+    padding: 30px;
 }
 
 /* Button Container */
