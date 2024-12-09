@@ -1,4 +1,4 @@
-/* Global Reset & Base Styles */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,8 +7,8 @@
 
 html, body {
     font-family: "Shrikhand", serif;
-    height: 100vh; /* Full viewport height */
-    width: 100vw;  /* Full viewport width */
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,11 +16,11 @@ html, body {
     background-image: url(../images/PGBGallg.jpg);
     background-size:104vw;
     background-position: center;
-    overflow: hidden; /* No scrolling */
-    padding: 3vh; /* Prevents content from touching screen edges */
+    overflow: hidden;
+    padding: 3vh;
 }
 
-/* Responsive Image */
+
 img {
     min-width: 400px;
     max-width: 30%;
@@ -28,7 +28,7 @@ img {
     padding: 30px;
 }
 
-/* Button Container */
+
 .button-container {
     margin-top: 2vh;
     display: flex;
@@ -53,7 +53,7 @@ img {
     background-color: #6ce886;
 }
 
-/* Button Layout on Larger Screens */
+
 @media (min-width: 600px) {
     .button-container {
         flex-direction: row;
@@ -66,14 +66,14 @@ img {
     }
 }
 
-/* Content Section */
+
 .content {
     max-width: 600px;
     text-align: center;
     line-height: 1.6;
 }
 
-/* Home Button Styles */
+
 .home-button {
     position: absolute;
     top: 2vh;
@@ -108,14 +108,14 @@ h1, h2 {
 }
 
 h1 {
-    font-size: clamp(26px, 3vw, 32px); /* Scales for all devices */
+    font-size: clamp(26px, 3vw, 32px);
 }
 
 h2 {
-    font-size: clamp(22px, 2.5vw, 28px); /* Scales for all devices */
+    font-size: clamp(22px, 2.5vw, 28px);
 }
 
-/* Background Canvas */
+
 canvas {
     display: block;
     position: absolute;
