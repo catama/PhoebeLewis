@@ -6,7 +6,7 @@
 }
 
 html, body {
-    font-family: "Rammetto One", sans-serif;
+    font-family: "Shrikhand", serif;
     height: 100vh; /* Full viewport height */
     width: 100vw;  /* Full viewport width */
     display: flex;
@@ -17,13 +17,13 @@ html, body {
     background-size:104vw;
     background-position: center;
     overflow: hidden; /* No scrolling */
-    padding: 2vh; /* Prevents content from touching screen edges */
+    padding: 3vh; /* Prevents content from touching screen edges */
 }
 
 /* Responsive Image */
 img {
-    width: 100%;
-    max-width: 560px;
+    min-width: 400px;
+    max-width: 30%;
     height: auto;
     padding: 30px;
 }
@@ -93,26 +93,26 @@ img {
 /* Headings Styles */
 h1, h2 {
     color: #df71a8;
-
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1vw;
     padding: 0.5vh 1vw;
     text-align: center;
     margin-bottom: 2vh;
-    text-shadow: 
+    /*text-shadow: 
         -2px -2px 0 white,        
          2px -2px 0 white,       
         -2px  2px 0 white,       
          2px  2px 0 white; 
          
-         
+     */    
 }
 
 h1 {
-    font-size: clamp(20px, 4vw, 32px); /* Scales for all devices */
+    font-size: clamp(20px, 3vw, 32px); /* Scales for all devices */
 }
 
 h2 {
-    font-size: clamp(16px, 3.5vw, 28px); /* Scales for all devices */
+    font-size: clamp(16px, 2.5vw, 28px); /* Scales for all devices */
 }
 
 /* Background Canvas */
@@ -131,9 +131,8 @@ a{
     color: #de2b5b;
 }
 
-.rammetto-one-regular {
-    font-family: "Rammetto One", sans-serif;
+.shrikhand-regular {
+    font-family: "Shrikhand", serif;
     font-weight: 400;
     font-style: normal;
   }
-  
