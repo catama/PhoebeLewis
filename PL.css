@@ -16,14 +16,14 @@ html, body {
     background-image: url(../images/PGBGallg.jpg);
     background-size:104vw;
     background-position: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding: 3vh;
 }
 
 
 img {
-    min-width: 400px;
-    max-width: 30%;
+    min-width: 275px;
+    max-width: 37%;
     height: auto;
     padding: 30px;
 }
