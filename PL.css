@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,11 +12,10 @@ html, body {
     flex-direction: column;
     align-items: center;
     background-image: url(../images/PGBGallg.jpg);
-    background-size:104vw;
+    background-size: 100vw;
     background-position: center;
     padding: 3vh;
 }
-
 
 img {
     min-width: 275px;
@@ -26,26 +24,16 @@ img {
     padding: 30px;
 }
 
-@media (max-width: 600px) {
-    img {
-        padding: 15px;
-    }
-}
-
-
 .button-container {
     margin-top: 2vh;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center; 
+    justify-content: center;
     gap: 1vh;
     width: 80%;
     max-width: 300px;
 }
 
-.button-container a {
-    text-align: center;
+.button-container a, .home-button {
     padding: 1vh 2vw;
     text-decoration: none;
     color: white;
@@ -55,28 +43,8 @@ img {
     font-size: clamp(12px, 2vw, 16px);
 }
 
-.button-container a:hover {
+.button-container a:hover, .home-button:hover {
     background-color: #6ce886;
-}
-
-
-@media (max-width: 600px) {
-    .button-container {
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: center;
-        gap: 2vh;
-        width: 100%;
-        align-items: center;
-    }
-
-    .button-container a {
-        padding: 1.5vh 3vw;
-        font-size: clamp(16px, 4vw, 20px);
-        border-radius: 8px;
-        flex-basis: 45%;
-        text-align: center;
-    }
 }
 
 .content {
@@ -84,24 +52,6 @@ img {
     text-align: center;
     line-height: 1.6;
 }
-
-
-.home-button {
-    position: absolute;
-    top: 2vh;
-    left: 2vw;
-    background-color: #ff99cc;
-    color: white;
-    padding: 1vh 2vw;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: clamp(12px, 2vw, 16px);
-}
-
-.home-button:hover {
-    background-color: #6ce886;
-}
-
 
 h1, h2 {
     color: #df71a8;
@@ -119,21 +69,10 @@ h1, h2 {
 h1 {
     font-size: clamp(26px, 3vw, 32px);
 }
+
 h2 {
     font-size: clamp(22px, 2.5vw, 28px);
 }
-
-@media (max-width: 600px) {
-    h1{
-        font-size: clamp(22px, 2vw, 28px);
-    } 
-    h2 {
-        font-size: clamp(20px, 1.5vw, 24px);
-    }
-}
-
-
-
 
 canvas {
     display: block;
@@ -145,7 +84,7 @@ canvas {
     z-index: -1;
 }
 
-a{
+a {
     text-decoration: none;
     color: #de2b5b;
 }
@@ -154,9 +93,9 @@ a{
     font-family: "Shrikhand", serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
-p{
+p {
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 1;
     border-radius: 5px;
@@ -165,7 +104,6 @@ p{
 
 .gallery {
     display: grid;
-    grid-template-columns: 1fr; /* Default: 1 column */
     gap: 15px;
     padding: 15px;
     width: 100%;
@@ -173,7 +111,6 @@ p{
     box-sizing: border-box;
     align-items: center;
     justify-items: center;
-    justify-content: center;
 }
 
 .gallery img {
@@ -190,20 +127,57 @@ p{
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Layout: 3 Columns on Wide Screens */
-@media (min-width: 850px) {
-    .gallery {
-        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+/* Responsive Layout */
+@media (max-width: 600px) {
+    .button-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2vh;
+        width: 100%;
+    }
+    .button-container a {
+        padding: 1.5vh 3vw;
+        font-size: clamp(16px, 4vw, 20px);
+        border-radius: 8px;
+        flex-basis: 45%;
+    }
+    h1 {
+        font-size: clamp(22px, 2vw, 28px);
+    }
+    h2 {
+        font-size: clamp(20px, 1.5vw, 24px);
+    }
+    .form-container iframe {
+        height: 120vh;
     }
 }
 
-/* Responsive Layout: 2 Columns on Medium Screens */
 @media (min-width: 600px) and (max-width: 849px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+@media (min-width: 850px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Home button */
+.home-button {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    background-color: #ff99cc;
+    color: white;
+    padding: 1vh 2vw;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+/* Iframe */
 .form-container {
     position: relative;
     width: 100%;
@@ -218,12 +192,3 @@ p{
     height: 100vh; /* Adjusts the iframe to fill the container */
     border: none; /* Removes the default border */
 }
-
-@media (max-width: 600px) {
-    .form-container iframe {
-        height: 120vh; /* Adjust to make sure the form content fits */
-    }
-}
-
-
-
