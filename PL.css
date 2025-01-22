@@ -215,6 +215,15 @@ p{
 
 .form-container iframe {
     width: 100%;
-    height: 100%; /* Adjusts the iframe to fill the container */
+    height: 100vh; /* Adjusts the iframe to fill the container */
     border: none; /* Removes the default border */
 }
+
+@media (max-width: 600px) {
+    .form-container iframe {
+        height: 120vh; /* Adjust to make sure the form content fits */
+    }
+}
+
+
+
