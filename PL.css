@@ -127,19 +127,20 @@ p {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Layout */
 @media (max-width: 600px) {
     .button-container {
         flex-wrap: wrap;
         justify-content: center;
         gap: 2vh;
         width: 100%;
+        text-align: center;
     }
     .button-container a {
         padding: 1.5vh 3vw;
         font-size: clamp(16px, 4vw, 20px);
         border-radius: 8px;
         flex-basis: 45%;
+        text-align: center;
     }
     h1 {
         font-size: clamp(22px, 2vw, 28px);
@@ -151,6 +152,7 @@ p {
         height: 120vh;
     }
 }
+
 
 @media (min-width: 600px) and (max-width: 849px) {
     .gallery {
