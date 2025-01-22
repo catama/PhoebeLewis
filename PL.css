@@ -11,7 +11,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(../images/PGBGallg.jpg);
+    background-image: url(../images/PGBGallg.webp);
     background-size: 100vw;
     background-position: center;
     padding: 3vh;
