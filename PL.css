@@ -64,7 +64,7 @@ img {
     .button-container {
         display: flex;
         flex-wrap: wrap; 
-        justify-content: space-around;
+        justify-content: center;
         gap: 2vh;
         width: 100%;
         align-items: center;
