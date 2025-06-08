@@ -1,32 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="/PL.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/favicon.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="/PL.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="/images/favicon.png" type="image/png" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"/>
+
+  <style>
+    .gallery-row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-row a {
+      flex: 1;
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-row a:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-row img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    #gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .lg-sub-html {
+  display: none !important;
+}
+  </style>
 </head>
 
 <body>
-    <a href="/" class="home-button">Home</a>
+  <a href="/" class="home-button">Home</a>
 
-    <div class="content">
-        <h1>Photo gallery</h1>
+  <div class="content">
+    <h1>Photo gallery</h1>
+    <div id="gallery"></div>
+  </div>
 
-        <div class="gallery">
-            <img src="/images/gallery/map.jpg" alt="Description 1">
-            <img src="/images/gallery/map.jpg" alt="Description 1">
-            <img src="/images/gallery/map.jpg" alt="Description 1">
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.umd.min.js"></script>
 
+<script>
+  const { lightGallery } = window;
+  const { lgZoom } = window;
 
-        </div>
+  const imageCount = 153;
+  const gallery = document.getElementById('gallery');
 
-    </div>
+  const orientationQueues = {
+    landscape: [],
+    portrait: []
+  };
+
+  function createImageElement(src, altText) {
+    const a = document.createElement('a');
+    a.href = src;
+    a.dataset.src = src;
+    a.setAttribute('data-lg-group', 'gallery');
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = altText;
+    a.appendChild(img);
+    return a;
+  }
+
+  function appendRow(elements) {
+    const row = document.createElement('div');
+    row.className = 'gallery-row';
+    elements.forEach(el => row.appendChild(el));
+    gallery.appendChild(row);
+  }
+
+  function flushRemaining() {
+    while (orientationQueues.landscape.length > 0) {
+      appendRow(orientationQueues.landscape.splice(0, 2));
+    }
+    while (orientationQueues.portrait.length > 0) {
+      appendRow(orientationQueues.portrait.splice(0, 3));
+    }
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const imageIndices = shuffleArray([...Array(imageCount).keys()].map(i => i + 1));
+  let imagesLoaded = 0;
+
+  imageIndices.forEach(i => {
+    const imageName = `image${i}.jpg`;
+    const imgPath = `/images/gallery/${imageName}`;
+    const testImg = new Image();
+    testImg.src = imgPath;
+
+    testImg.onload = function () {
+      const orientation = testImg.naturalWidth > testImg.naturalHeight ? 'landscape' : 'portrait';
+      const imgElement = createImageElement(imgPath, imageName);
+
+      orientationQueues[orientation].push(imgElement);
+
+      if (orientation === 'landscape' && orientationQueues.landscape.length === 2) {
+        appendRow(orientationQueues.landscape.splice(0, 2));
+      }
+      if (orientation === 'portrait' && orientationQueues.portrait.length === 3) {
+        appendRow(orientationQueues.portrait.splice(0, 3));
+      }
+
+      imagesLoaded++;
+      if (imagesLoaded === imageCount) {
+        flushRemaining();
+
+        lightGallery(gallery, {
+          selector: 'a',
+          download: false,
+          plugins: [lgZoom]
+        });
+      }
+    };
+  });
+</script>
 
 </body>
 </html>
