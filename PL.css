@@ -121,6 +121,10 @@ p {
     .form-container iframe {
         height: 120vh;
     }
+
+    img{
+        max-width: 300px;
+    }
 }
 
 
